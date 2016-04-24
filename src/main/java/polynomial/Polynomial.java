@@ -3,15 +3,26 @@ package polynomial;
 import java.util.*;
 import java.util.Collections;
 
+
 public class Polynomial {
 	
 	private ArrayList<term> termList;
 	private String poly = "";
+	private String ettikai = "";
 	
-	public Polynomial(){
+	
+	// Constructor
+	public Polynomial(String ettikai){
 		termList = new ArrayList<term>();
+		this.ettikai = ettikai;
 	}
 	
+	/**
+	 * Insert X and Y into term and adding term into termlist 
+	 * in descending order
+	 * @param X
+	 * @param Y
+	 */
 	public void insert(int X, int Y){
 		
 		term newTerm = new term(X, Y);
@@ -33,12 +44,15 @@ public class Polynomial {
 	}
 	
 
+	/**
+	 * Reversing listerms
+	 */
 	public void reverse(){
 		Collections.reverse(termList);
 	}
 
 	/**
-	 * Remove specific term from 
+	 * Remove specific term from termList
 	 * @param X
 	 * @param Y
 	 */

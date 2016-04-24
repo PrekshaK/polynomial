@@ -11,12 +11,17 @@ public class term{
 	private String trailing;
 	private String coeffstring;
 	
+	
+	//Constructor
 	public term(int coefficient, int exponent){
 		this.coefficient = coefficient;
 		this.exponent = exponent;
 		
 	}
 	
+	/**
+	 * Concatenating term variable to return term in string form
+	 */
 	public String toString(){
 		
 		
@@ -46,17 +51,28 @@ public class term{
 	}
 	
 	
-	
+	/**
+	 * getting exponent of term
+	 * @return
+	 */
 	public int getExponent(){
 		
 		return exponent;
 	}
 	
+	/**
+	 * Getting coefficient of term
+	 * @return
+	 */
 	public int getCoefficient(){
 		return coefficient;
 	}
 	
-	
+	/**
+	 * Check if two terms are equal
+	 * @param comterm
+	 * @return
+	 */
 	public boolean equals(term comterm) {
 	    if (comterm == null) return false;
 	    else if (comterm == this) return true;
