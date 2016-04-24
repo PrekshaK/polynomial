@@ -1,12 +1,15 @@
 package polynomial;
 
-import java.util.Comparator;
 
 public class term{
 
 	private int coefficient;
 	private int exponent;
 	private String termstring;
+	private String sign;
+	private int coeff;
+	private String trailing;
+	private String coeffstring;
 	
 	public term(int coefficient, int exponent){
 		this.coefficient = coefficient;
@@ -15,13 +18,37 @@ public class term{
 	}
 	
 	public String toString(){
-		termstring = String.valueOf(coefficient) + "x^"+ String.valueOf(exponent) + " ";
-		//System.out.println(termstring);
+		
+		
+		if (exponent == 0){
+			trailing = " ";
+		}else{
+			trailing = "x^" + String.valueOf(exponent) + " ";
+		}
+		
+		if (coefficient < 0){
+			coeff = coefficient * -1;
+			coeffstring = String.valueOf(coeff);
+			sign = "- ";
+			
+		}else if (coefficient == 0){
+			coeffstring = "";
+		}
+		
+		else{
+			coeff = coefficient;
+			coeffstring = String.valueOf(coeff);
+			sign = "+ ";
+		}
+		termstring = sign + coeffstring + trailing;
 		return termstring;
 		
 	}
 	
+	
+	
 	public int getExponent(){
+		
 		return exponent;
 	}
 	
@@ -42,6 +69,5 @@ public class term{
 	    }
 	}
 	
-
 	
 }

@@ -22,30 +22,27 @@ public class test {
 		
 		String line = reader.readLine();
         while(line != null){
-            System.out.println(line);
-            line = reader.readLine();
+        	String[] array = line.split(";");
+        	Polynomial poly = new Polynomial();
+        	for (int i = 1; i < array.length; i+=2){
+        		int x = Integer.parseInt(array[i]);
+        		int y = Integer.parseInt(array[i+1]);
+        		poly.insert(x, y);
+        	}
+        	System.out.println(poly.getPolynomial());
+        	
+        	System.out.println(poly.getProduct());
+        	poly.reverse();
+        	System.out.println(poly.getPolynomial());
+        	
+        	
+        	
+        	
+        	
+        	
+            line = reader.readLine();    
         }  
-		
-		
-		
-		
-		
-		Polynomial poly = new Polynomial();
-		poly.insert(-2, 2);
-		poly.insert(3, 3);
-		poly.insert(5, 9);
-	//	poly.remove(3,  2);
-		String mypoly = poly.getPolynomial();
-		System.out.println(mypoly);
-//		poly.reverse();
-//		
-//		String revpoly = poly.getPolynomial();
-//		
-//		System.out.println(revpoly);
-//		
-//		System.out.println("hello");
-//		
-		
+
 	}
 
 }
