@@ -1,12 +1,12 @@
 package polynomial;
 
 import java.util.*;
-import java.util.Collections;
 
 
 public class Polynomial {
 	
 	private ArrayList<term> termList;
+	private ArrayList<term> termFresh;
 	private String poly = "";
 	private String ettikai = "";
 	
@@ -14,6 +14,7 @@ public class Polynomial {
 	// Constructor
 	public Polynomial(String ettikai){
 		termList = new ArrayList<term>();
+		termFresh = new ArrayList<term>();
 		this.ettikai = ettikai;
 	}
 	
@@ -28,6 +29,7 @@ public class Polynomial {
 		term newTerm = new term(X, Y);
 		if (termList.isEmpty()){
 	          termList.add(newTerm);
+	          termFresh.add(newTerm);
 	          return;
 	      }
 	      int polySize = termList.size() - 1 ;
@@ -35,11 +37,16 @@ public class Polynomial {
 	          term listTerm = termList.get(i) ;  
 	          int listTermExpo = listTerm.getExponent() ;
 	          if ( Y >= listTermExpo ){
+	        	  
 	               termList.add(i, newTerm);
+	               
+	               termFresh.add(i, newTerm);
+	               
 	               return;
 	            }
 	       }
 	      termList.add(newTerm);
+	      termFresh.add(newTerm);
 	      return;
 	}
 	
@@ -48,6 +55,7 @@ public class Polynomial {
 	 * Reversing listerms
 	 */
 	public void reverse(){
+
 		Collections.reverse(termList);
 	}
 
@@ -84,11 +92,14 @@ public class Polynomial {
 		return product;
 		
 	}
+
 	
 	/**
 	 * get all terms from termlist and concatenate their string forms
 	 * @return the final polynomial value
 	 */
+
+	
 	public String getPolynomial(){
 		poly = "P(x) = ";		
 		for (int x = 0; x < termList.size(); x++){
@@ -98,6 +109,30 @@ public class Polynomial {
 		
 		poly = poly.substring(0, 6) + poly.substring(8);
 		return poly;
-	}			
+	}
+	
+	/**
+	 * 
+	 * @return the polynomial in ascending order
+	 */
+
+	
+	public String Product(){
+		poly = "P(x) = ";
+		for (int x = 0; x < termFresh.size(); x++){
+			String term = termFresh.get(x).toString();
+			poly += term;
+		}
+		
+		poly = poly.substring(0, 6) + poly.substring(8);
+		return poly;
+		
+		
+	}
+	
+	
+	
+	
+	
 }	
 

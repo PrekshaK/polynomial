@@ -45,11 +45,14 @@ public class test {
         	
         	System.out.println(poly.getPolynomial());
         	
-        	System.out.println(poly.getProduct());
+        	//System.out.println(poly.getProduct());
         	
         	System.out.println("reversing");
         	poly.reverse();
         	System.out.println(poly.getPolynomial());
+        	
+        	System.out.println("getting Product");
+        	System.out.println(poly.Product());
 
         
         	
